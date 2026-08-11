@@ -27,7 +27,24 @@ def salvar_livros(livros):
  
         escritor.writeheader()
         escritor.writerows(livros)
+  
+    return True
+
+# Cadastro do livro 
+def cadastrar_livro(livros, titulo, autor, ano, isbn):
+    for livro in livros:
+        if livro["isbn"] == isbn:
+            return False
  
+    novo_livro = {
+        "titulo": titulo,
+        "autor": autor,
+        "ano": ano,
+        "isbn": isbn,
+        "status": "disponível"
+    }
+ 
+    livros.append(novo_livro)
     return True
  
  
