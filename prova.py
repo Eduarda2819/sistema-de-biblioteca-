@@ -46,7 +46,18 @@ def cadastrar_livro(livros, titulo, autor, ano, isbn):
  
     livros.append(novo_livro)
     return True
+
+ # Busca livros pelo título/autor.
+def buscar_livros(livros, termo):
+    resultados = []
  
+    termo = termo.lower()
+ 
+    for livro in livros:
+        if termo in livro["titulo"].lower() or termo in livro["autor"].lower():
+            resultados.append(livro)
+ 
+    return resultados
  
 
 
