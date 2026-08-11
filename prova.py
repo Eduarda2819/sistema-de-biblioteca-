@@ -77,4 +77,20 @@ def listar_livros(livros):
  
     return True
 
+# organizar os livros por título, autor ou ano.
+def ordenar_livros(livros, criterio):
+    if criterio == "titulo":
+        livros.sort(key=lambda livro: livro["titulo"].lower())
+        return True
+ 
+    elif criterio == "autor":
+        livros.sort(key=lambda livro: livro["autor"].lower())
+        return True
+ 
+    elif criterio == "ano":
+        livros.sort(key=lambda livro: livro["ano"])
+        return True
+ 
+    return False
+
 
