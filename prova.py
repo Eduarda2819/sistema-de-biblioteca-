@@ -101,7 +101,7 @@ def encontrar_livro_por_isbn(livros, isbn):
  
     return None
 
-# SISTEMA DE BIBLIOTECA opcoes 
+# SISTEMA DE BIBLIOTECA opções
 def main():
     livros = carregar_livros()
  
@@ -114,5 +114,30 @@ def main():
         print("5 - Buscar livro")
         print("6 - Ordenar livros")
         print("7 - Sair")
+
+        opcao = input("Escolha uma opção: ")
+ 
+        if opcao == "1":
+            print("\n--- CADASTRAR LIVRO ---")
+ 
+            titulo = input("Título: ")
+            autor = input("Autor: ")
+ 
+            try:
+                ano = int(input("Ano de publicação: "))
+            except ValueError:
+                print("Ano inválido.")
+                continue
+ 
+            isbn = input("Código/ISBN: ")
+ 
+            cadastrado = cadastrar_livro(
+                livros,
+                titulo,
+                autor,
+                ano,
+                isbn
+            )
+ 
 
 
