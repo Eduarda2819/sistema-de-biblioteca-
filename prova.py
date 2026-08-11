@@ -58,6 +58,23 @@ def buscar_livros(livros, termo):
             resultados.append(livro)
  
     return resultados
+
+ # Lista todos os livros cadastrados.
+def listar_livros(livros):
+    if len(livros) == 0:
+        print("\nNenhum livro cadastrado.")
+        return False
  
+    print("\n--- LIVROS CADASTRADOS ---")
+ 
+    for livro in livros:
+        print(f"Título: {livro['titulo']}")
+        print(f"Autor: {livro['autor']}")
+        print(f"Ano: {livro['ano']}")
+        print(f"ISBN: {livro['isbn']}")
+        print(f"Status: {livro['status']}")
+        print("--------------------------")
+ 
+    return True
 
 
