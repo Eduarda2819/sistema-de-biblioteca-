@@ -77,7 +77,7 @@ def listar_livros(livros):
  
     return True
 
-# organizar os livros por título, autor ou ano.
+# organizar os livros por título, autor e ano.
 def ordenar_livros(livros, criterio):
     if criterio == "titulo":
         livros.sort(key=lambda livro: livro["titulo"].lower())
@@ -92,5 +92,13 @@ def ordenar_livros(livros, criterio):
         return True
  
     return False
+
+#  ISBN.
+def encontrar_livro_por_isbn(livros, isbn):
+    for livro in livros:
+        if livro["isbn"] == isbn:
+            return livro
+ 
+    return None
 
 
