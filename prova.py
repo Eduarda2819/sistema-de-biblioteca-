@@ -101,4 +101,18 @@ def encontrar_livro_por_isbn(livros, isbn):
  
     return None
 
+# SISTEMA DE BIBLIOTECA opcoes 
+def main():
+    livros = carregar_livros()
+ 
+    while True:
+        print("\n===== SISTEMA DE BIBLIOTECA =====")
+        print("1 - Cadastrar livro")
+        print("2 - Emprestar livro")
+        print("3 - Devolver livro")
+        print("4 - Listar livros")
+        print("5 - Buscar livro")
+        print("6 - Ordenar livros")
+        print("7 - Sair")
+
 
