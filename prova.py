@@ -138,6 +138,94 @@ def main():
                 ano,
                 isbn
             )
+#Dr a função de cada opção e salvar 
+            if cadastrado:
+                salvar_livros(livros)
+                print("Livro cadastrado com sucesso.")
+            else:
+                print("Já existe um livro com esse código/ISBN.")
+ 
+        elif opcao == "2":
+            print("\n--- EMPRESTAR LIVRO ---")
+ 
+            isbn = input("Digite o código/ISBN do livro: ")
+            livro = encontrar_livro_por_isbn(livros, isbn)
+ 
+            if livro is None:
+                print("Livro não encontrado.")
+            elif livro["status"] == "emprestado":
+                print("O livro já está emprestado.")
+            else:
+                livro["status"] = "emprestado"
+                salvar_livros(livros)
+                print("Empréstimo registrado com sucesso.")
+ 
+        elif opcao == "3":
+            print("\n--- DEVOLVER LIVRO ---")
+ 
+            isbn = input("Digite o código/ISBN do livro: ")
+            livro = encontrar_livro_por_isbn(livros, isbn)
+ 
+            if livro is None:
+                print("Livro não encontrado.")
+            elif livro["status"] == "disponível":
+                print("O livro já está disponível.")
+            else:
+                livro["status"] = "disponível"
+                salvar_livros(livros)
+                print("Devolução registrada com sucesso.")
+ 
+        elif opcao == "4":
+            listar_livros(livros)
+ 
+        elif opcao == "5":
+            print("\n--- BUSCAR LIVRO ---")
+ 
+            termo = input("Digite o título ou autor: ")
+           
+            resultados = buscar_livros(livros, termo)
+ 
+            if len(resultados) == 0:
+                print("Nenhum livro encontrado.")
+            else:
+                listar_livros(resultados)
+ 
+        elif opcao == "6":
+            print("\n--- ORDENAR LIVROS ---")
+            print("1 - Por título")
+            print("2 - Por autor")
+            print("3 - Por ano")
+ 
+            criterio = input("Escolha uma opção: ")
+ 
+            if criterio == "1":
+                ordenado = ordenar_livros(livros, "titulo")
+ 
+            elif criterio == "2":
+                ordenado = ordenar_livros(livros, "autor")
+ 
+            elif criterio == "3":
+                ordenado = ordenar_livros(livros, "ano")
+ 
+            else:
+                ordenado = False
+ 
+            if ordenado:
+                salvar_livros(livros)
+                print("Livros ordenados com sucesso.")
+                listar_livros(livros)
+            else:
+                print("Opção de ordenação inválida.")
+ 
+        elif opcao == "7":
+            print("Programa encerrado.")
+            break
+ 
+        else:
+            print("Opção inválida. Escolha uma opção de 1 a 7.")
+ 
+ 
+main()
 
         
 
